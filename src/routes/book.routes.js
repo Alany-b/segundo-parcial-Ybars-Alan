@@ -1,30 +1,20 @@
-import { DataTypes } from "sequelize";
-import sequelize  from "../config/database.js";
+// routes/BookRoutes.js
+import { Router } from 'express';
+import {
+  getAllBooks,
+  getBookById,
+  createBook,
+  updateBook,
+  deleteBook,
+} from '../controllers/BookController.js';
 
-const book = sequelize.define('book', {
-    id : {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-    },
-    author: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    pages: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            isInt: true,
-            min: 1,
-        }
-    },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: true
-    }
-}, {
-  timestamps: false 
-});
+const router = Router();
 
-export default book;
+// Endpoints
+router.get('/', getAllBooks);
+router.get('/:id', getBookById);
+router.post('/', createBook);
+router.put('/:id', updateBook);
+router.delete('/:id', deleteBook);
+
+export default router;

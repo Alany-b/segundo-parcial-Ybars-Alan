@@ -17,4 +17,4 @@ logging: false,
 
 
 );
-export default sequilize;
+export default sequilize; 

@@ -1,12 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize  from "../config/database.js";
 
-const book = sequelize.define('book', {
-    id : {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-    },
+const Book = sequelize.define('book', {
+    
     author: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -27,4 +23,4 @@ const book = sequelize.define('book', {
   timestamps: false 
 });
 
-export default book;
+export default Book;
